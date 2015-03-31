@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>eTouch Systems</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/cloud.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link href="css/etouch.css" rel="stylesheet">
+<link href="css/search-results.css" rel="stylesheet" type="text/css" />
+<link href="css/superslide.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        
+
+        
+	<script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.animate-enhanced.min.js"></script>
+	<script src="js/hammer.min.js"></script>
+	<script src="js/jquery.superslides.min.js" type="text/javascript"></script>
+   <script> $(document).ready(function(){
+  $("ul.nav.navbar-nav li, ul.list-inline.pull-right li").each(function(){
+    $(this).find("a").click(function(){
+		if($(this).attr("target") != "_blank")
+       window.location.href = $(this).attr("href");
+    });
+  });
+});</script>
+	<script src="js/common.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
+	
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+
+<!--	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
+	<!--<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>-->
+
+	<script type="text/javascript" src="js/jquery.slimscroll.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
+	<script type="text/javascript" src="js/jquery.fullPage.js"></script><!--
+	<script type="text/javascript" src="js/examples.js"></script>-->
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			
+			$('#fullpage').fullpage({
+				navigation: true,
+				navigationPosition: 'left',
+				navigationTooltips: [],
+				scrollOverflow: true,
+				responsive: 0,
+				//equivalent to jQuery `easeOutBack` extracted from http://matthewlein.com/ceaser/
+				easingcss3: '',
+                afterRender: function() {
+                    var textAnchorsList = $("#fp-nav ul li a"),
+                        anchorTexts = ["Leveraging the Legacy", "Stakeholder Collaboration", "Demand Data & Services", "Digital Enterprise Security", "Testing Services", "Digital Analytics", "Cloud Enablement"];
+                    for (var i = 0; i < textAnchorsList.length; i++) {
+                        $(textAnchorsList[i]).append("<div class='left-nav-text'>" + anchorTexts[i] + "</div>");
+                    }
+					var serviceParamValue = getParameterByName('serviceParamValue');
+                    $("#fp-nav").addClass("scroll-section1");
+					$("#fp-nav li").eq(serviceParamValue).find('a').trigger('click');
+                },
+                onLeave : function(index, nextIndex, direction ) {
+                    $("#fp-nav").hide(); 
+                },
+                afterLoad: function(anchorLink, index){
+                    $("#fp-nav").show();
+					$("#fp-nav").removeAttr('class');
+                	$("#fp-nav").addClass("left scroll-section" + index);
+                }
+			});
+			
+        });
+	</script>
+    <style>
+		#section2 .services-wrapper > h2.heading {
+			margin: 50px 0 0;
+		}
+        #fp-nav ul li{
+			width: 165px;
+			height: 20px;
+		}
+		#fp-nav ul li a{
+			color: #ffffff;
+			height: 21px;
+			outline: 0 none;
+			width: 160px;
+        }
+        
+        #fp-nav .left-nav-text {
+            float: left;
+            display: inline-block;
+            text-align: right;
+            border: none !important;
+            font-size: 12px;
+            padding-top: 2px;
+            padding-right: 5px; 
+            width: 147px;
+        }
+        #fp-nav ul li a span,#fp-nav ul li:hover a span, .fp-slidesNav ul li:hover a span{
+			height: 11px;
+			left: auto;
+			margin: 0;
+			right: 0;
+			top: 30%;
+			width: 11px;
+        }
+        #fp-nav ul li a.active span,#fp-nav ul li:hover a.active span, .fp-slidesNav ul li:hover a.active span{
+            
+            width: 11px;
+            height: 11px;
+            margin: 0;
+        }
+        #fp-nav.scroll-section1 ul li a span,#fp-nav.scroll-section1 ul li:hover a span, .fp-slidesNav.scroll-section1 ul li:hover a span,
+        #fp-nav.scroll-section3 ul li a span,#fp-nav.scroll-section3 ul li:hover a span, .fp-slidesNav.scroll-section3 ul li:hover a span,
+        #fp-nav.scroll-section5 ul li a span,#fp-nav.scroll-section5 ul li:hover a span, .fp-slidesNav.scroll-section5 ul li:hover a span,
+        #fp-nav.scroll-section7 ul li a span,#fp-nav.scroll-section7 ul li:hover a span, .fp-slidesNav.scroll-section7 ul li:hover a span
+        {
+            border: 1px solid #fff;
+            background: #146159;
+        }
+        #fp-nav.scroll-section1 ul li a.active span,#fp-nav.scroll-section1 ul li:hover a.active span, .fp-slidesNav.scroll-section1 ul li:hover a.active span,
+        #fp-nav.scroll-section3 ul li a.active span,#fp-nav.scroll-section3 ul li:hover a.active span, .fp-slidesNav.scroll-section3 ul li:hover a.active span,
+        #fp-nav.scroll-section5 ul li a.active span,#fp-nav.scroll-section5 ul li:hover a.active span, .fp-slidesNav.scroll-section5 ul li:hover a.active span,
+        #fp-nav.scroll-section7 ul li a.active span,#fp-nav.scroll-section7 ul li:hover a.active span, .fp-slidesNav.scroll-section7 ul li:hover a.active span
+        {
+            background: #fff;
+        }
+        
+        #fp-nav.scroll-section2 ul li a span,#fp-nav.scroll-section2 ul li:hover a span, .fp-slidesNav.scroll-section2 ul li:hover a span,
+        #fp-nav.scroll-section4 ul li a span,#fp-nav.scroll-section4 ul li:hover a span, .fp-slidesNav.scroll-section4 ul li:hover a span,
+        #fp-nav.scroll-section6 ul li a span,#fp-nav.scroll-section6 ul li:hover a span, .fp-slidesNav.scroll-section6 ul li:hover a span
+        {
+            border: 1px solid #000;
+            background: #fff;
+        }
+        
+        #fp-nav.scroll-section2 ul li a.active span,#fp-nav.scroll-section2 ul li:hover a.active span, .fp-slidesNav.scroll-section2 ul li:hover a.active span,
+        #fp-nav.scroll-section4 ul li a.active span,#fp-nav.scroll-section4 ul li:hover a.active span, .fp-slidesNav.scroll-section4 ul li:hover a.active span,
+        #fp-nav.scroll-section6 ul li a.active span,#fp-nav.scroll-section6 ul li:hover a.active span, .fp-slidesNav.scroll-section6 ul li:hover a.active span
+        {
+            background: #000;
+        }
+        
+        #fp-nav.scroll-section2 ul li a .left-nav-text,#fp-nav.scroll-section2 ul li:hover a .left-nav-text, .fp-slidesNav.scroll-section2 ul li:hover a .left-nav-text,
+        #fp-nav.scroll-section4 ul li a .left-nav-text,#fp-nav.scroll-section4 ul li:hover a .left-nav-text, .fp-slidesNav.scroll-section4 ul li:hover a .left-nav-text,
+        #fp-nav.scroll-section6 ul li a .left-nav-text,#fp-nav.scroll-section6 ul li:hover a .left-nav-text, .fp-slidesNav.scroll-section6 ul li:hover a .left-nav-text
+        {
+            color: #000;
+        }
+        
+        footer {
+		  border-top: 2px solid #cdcdcd;
+		  color: #6b6b6b;
+		  font-size: 14px;
+		  padding: 10px 0 10px;
+		  background: #fff;
+		  margin-top: 150px;
+		  height: 200px;
+		}
+		
+    </style>
+    <!-- Put the following javascript before the closing </head> tag. -->
+    <script type="text/javascript">
+      (function() {
+        var cx = '009106585577107666789:fkerrd2tfzs';
+        var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//www.google.com/cse/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+      })();
+    </script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid primary-nav"> 
+        
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="index.html"><img src="images/etouch-logo.png" alt="eTouch Systems" class="img-responsive"> <div class="clearfix"></div></a> </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse top-nav navbar-right" id="bs-example-navbar-collapse-1">
+          <div class="top-slide-menu navbar-left">
+            <ul class="nav navbar-nav">
+              <li data-rel="home"><a href="index.html">Home <span class="sr-only">(current)</span></a></li>
+              <li class="active" data-rel="services"> <a href="services.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Services </a> 
+                <ul class="dropdown-menu" role="menu"><li><a href="accelerators.html">Accelerators</a></li>
+                </ul></li>
+              <li class="dropdown" data-rel="customers"><a href="customers.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Customers</a>                <ul class="dropdown-menu" role="menu">                  <li><a href="index.html?sliderValue=casestudies1">Case Studies</a></li>
+                </ul></li>
+<li data-rel="Product"><a href="../products/samepage/index.html" target="_blank">Product</a>
+                
+              </li>
+              <li class="dropdown" data-rel="Aboutus"><a href="about.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About Us</a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="management.html">Leadership</a></li>
+                  <li><a href="partners.html">Alliances</a></li>
+                  <li><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+              </li>
+              <li><a href="careers/index.html">Careers</a></li>
+            </ul>            <form class="navbar-form navbar-left" role="search">
+               <!--<input type="text" class="form-control" placeholder="Search">-->
+                  <!-- Place this tag where you want the search box to render -->
+                  <gcse:searchbox-only></gcse:searchbox-only>
+             <!-- <button type="submit" class="btn btn-default search-icon-btn">Submit</button>-->
+            </form>
+</div>
+          <div class="nav-button navbar-left"><span class="sr-lines-rotate"></span></div>
+        </div>
+      </div>
+      <!-- /.container-fluid --> 
+      
+    </nav>
+  </header>
+  <div class="clearfix"></div>
+  
+  
+<div id="fullpage">
+	<div class="section services" id="section1">
+		<div class="intro">
+			<section class="services" id="panel-1">
+    	<div class="container-fluid services-wrapper">
+            	<h2 class="heading">Leveraging the Legacy</h2>
+                <div class="row">
+                <div class="col-md-3 col-sm-3 img-right"><img src="images/services/services-pic.png" class="img-responsive background-image img-right"></div>
+                <div class="col-md-6 custom col-sm-6">
+                	<p class="services-p">Digital data and processes exist in most of the enterprises we serve today. The cost of replacing legacy systems is significant. eTouch’s digital engineering approach suggests ways of leveraging existing systems using technologies such as Business Process Management (BPM), Enterprise Application Integration (EAI) and Service Oriented Architecture (SOA). We build APIs, wrappers, and adapters for legacy applications to unlock the data potential of legacy systems.</p>
+                    <div class="table-responsive">
+                    	<table class="table">
+                        	<thead>
+                              <tr>
+                                <th>Business Process Management (BPM)</th>
+                                <th>Enterprise Application Integration</th>
+                                <th>Service Oriented Architecture</th>
+                              </tr>
+        				</thead>
+        				<tbody>
+                          <tr>
+                            <td>
+                            	<ul class="services-ul">
+                                	<li>Savvion</li>
+                                    <li>MuleSoft</li>
+                                    <li>BizTalk</li>
+                                </ul>
+                            </td>
+                            <td>
+                            	<ul class="services-ul">
+                                	<li>WebMethods</li>
+                                    <li> BizTalk</li>
+                                </ul>
+                            </td>
+                            <td>
+                            	<ul class="services-ul">
+                                	<li>REST</li>
+                                    <li>SOAP</li>
+                                </ul>
+                            </td>
+                          </tr>
+                          </tbody>
+                    </table>
+                    </div>
+                </div>
+                </div>
+            </div>
+    </section>
+		</div>
+	</div>
+    <!--slider2-->
+	<div class="section services" id="section2">	   
+<div class="intro">	
+    	<div class="container-fluid services-wrapper">
+            	<h2 class="heading">Digital Web Engineering for Stakeholder Collaboration</h2> 
+                <div class="row">                      
+                 <div class="col-md-3 col-sm-3 img-right"><img src="images/services/stakeholder-collaboration-pic.png" class="img-responsive background-image img-right"></div>                          
+                <div class="col-md-6 custom col-sm-6">
+                <p class="services-p">Enterprises today have several stakeholders — customers, employees, business partners, vendors, management, and citizens. eTouch’s engineering teams understand this ecosystem of collaborators, as well as business process nuances, to propose the most optimal solution path for present and future scalability. We have expertise in building systems that bring data and process access to collaborators via websites, portals, content management systems, enterprise search solutions, collaboration platforms, and knowledge management systems.</p>
+                <p class="services-p">We bootstrap the development processes for these solutions using our accelerators and solution frameworks in multiple languages such as Java, C#, Python, PHP, Ruby, and JavaScript.</p>
+                
+                </div><div class="clearfix"></div>
+               <div class="col-lg-10 custom">
+                <div class="table-responsive services-table">
+                    	<table class="table">
+                        	<thead>
+                              <tr>
+                                <th>Portals</th>
+                                <th>Content Management / Document Management</th>
+                                <th>Enterprise Search</th>
+                                <th>Application Frameworks</th>
+                              </tr>
+        				</thead>
+        				<tbody>
+                          <tr>
+                            <td>
+                            	<ul class="services-ul">
+                                	<li>Liferay</li>
+                                    <li>Microsoft SharePoint</li>
+                                    <li>Oracle WebLogic</li>
+                                    <li>IBM WebSphere</li>
+                                </ul>
+                            </td>
+                            <td>
+                            	<ul class="services-ul">
+                                	<li>EMC Documentum</li>
+                                    <li>Interwoven TeamSite</li>
+                                    <li>Adobe CQ5</li>
+                                    <li>Drupal</li>
+                                    <li>OpenText Media Management</li>
+                                    <li>OpenText LiveLink</li>
+                                </ul>
+                            </td>
+                            <td>
+                            	<ul class="services-ul">
+                                	<li>Google Search Appliance</li>
+                                    <li>Google Site Search</li>
+                                    <li>Lucene / Solr</li>
+                                    <li>Microsoft FAST</li>
+                                    <li>Oracle Endeca</li>
+                                    <li>Convera</li>
+                                    <li>SmartLogic Semaphore</li>
+                                </ul>
+                            </td>
+                            <td>
+                            	<ul class="services-ul">
+                                	<li>Spring</li>
+                                    <li>Struts</li>
+                                    <li>Hibernate</li>
+                                    <li>Django</li>
+                                    <li>Ruby on Rails</li>
+                                    <li>ExtJS, YUI, JQuery</li>
+                                    <li>Bootstrap</li>
+                                    <li>NodeJS</li>
+                                    <li>Angular JS</li>
+                                </ul>
+                            </td>
+                          </tr>
+                          </tbody>
+                    </table>
+                    </div>
+                </div>
+               
+               
+               
+                </div>
+            </div>
+
+    
+			</div>
+		</div>
+ <!--slider2-->
+    
+    
+  <!--slider3-->   
+	<div class="section services" id="section3">
+		<div class="intro">
+			
+    	<div class="container-fluid services-wrapper">
+            	<h2 class="heading">On Demand Data &amp; Services</h2>
+                <div class="row">
+                <div class="col-md-3 col-sm-3 img-right">
+                <img src="images/services/demand-data-pic.png" class="img-responsive background-image img-right"></div>
+                <div class="col-md-6 custom col-sm-6">
+                	<p class="services-p">eTouch’s teams build responsive web designs that cater to target device specifications, and also native mobile applications to improve the access and reachability of enterprise services for various stakeholders. We have special teams that serve these enterprise needs for all popular platforms such as Responsive Web (HTML5/CSS3), Android, iOS, Windows Phone, and BlackBerry.</p>
+                </div>
+                </div>
+            </div>
+   
+		</div>
+	</div>
+   <!--slider3--> 
+  
+  
+   <!--slider4--> 
+   	<div class="section services" id="section4">
+		<div class="intro">			 
+    	<div class="container-fluid services-wrapper">
+            	<h2 class="heading">Digital Enterprise Security</h2>
+                <div class="row">
+                <div class="col-md-3 col-sm-3 img-right">
+                <img class="img-responsive background-image img-right" src="images/services/digital-enterprise.png">
+                </div>   
+                <div class="col-md-6 custom col-sm-6">
+                	<p class="services-p">Our digital engineering approach always considers the security aspect for our digital solutions. Our services portfolio comprises security assessment, security design and architecture, security policy and process consulting, security solution implementation, security testing, and security audit.</p>
+                    <p class="services-p">Our teams have deep expertise in using tools for Access Management, Identity Management, Authentication and Authorization Services, Single Sign-On, Directory Services, Intrusion Detection, and Penetration Testing.</p>
+                </div>                             
+                </div>
+            </div>
+  
+		</div>
+	</div> 
+   <!--slider4--> 
+   
+   
+    <!--slider5--> 
+   	<div class="section services" id="section5">
+		<div class="intro">		 
+    	
+    	<div class="container-fluid services-wrapper">
+            	<h2 class="heading">Testing Services for the Digital Enterprise</h2>
+                <div class="row">
+                <div class="col-md-3 col-sm-3 img-right">
+                <img src="images/services/testing-services-pic.png" class="img-responsive background-image img-center"></div>
+                <div class="col-md-6 custom col-sm-6">
+                	<p class="services-p">We offer a complete range of testing services that help enterprises to not only provide reliable and accurate data and services, but also to reduce the associated investments. We offer, along with our testing services, accelerators (including our proprietary eTAAP) that enable test automation using a range of open source frameworks such as Jenkins, Selenium, TestNG, and Continuous Integration tools such as Maven. Our testing approach covers all digital platforms, web and mobile transactions, as well as analytics services.</p>
+                    <p class="services-p">Apart from functional testing, system testing, regression testing, and API testing services, we provide specialized services such as performance testing, security testing, and multivariate testing to provide insights that better serve the needs of stakeholders as well as application and service users.</p>
+                    <p class="services-p">We help set up testing Centers of Excellence (CoE) for enterprises, and provide a roadmap for adoption of testing automation.</p>
+                </div>                                
+                </div>
+            </div>
+
+  
+		</div>
+	</div> 
+   <!--slider5-->   
+   
+   
+    <!--slider6--> 
+   	<div class="section services" id="section6">
+		<div class="intro">	
+    	<div class="container-fluid services-wrapper">
+            	<h2 class="heading">Digital Analytics</h2>
+                <div class="row">
+                 <div class="col-md-3 col-sm-3 img-right"><img src="images/services/digital-analytics.png" class="img-responsive background-image img-right"></div>
+                <div class="col-md-6 custom col-sm-6">
+                <p class="services-p">The stakeholders of a digital enterprise make important decisions based on the data residing in multiple databases and repositories, which are pruned via several business rules. eTouch’s teams not only leverage legacy data, but also integrate newer structured as well unstructured data sources to bring   the data into a form easily understood by stakeholders — enabling them to make more intelligent business decisions.</p>                
+                <div class="table-responsive">
+                    	<table class="table">
+                        	<thead>
+                              <tr>
+                                <th>Big Data</th>
+                                <th>Business Intelligence</th>
+                                <th>Enterprise Data Warehouse</th>
+                                <th>Data Management</th>
+                                <th>Analytics</th>
+                              </tr>
+        				</thead>
+        				<tbody>
+                          <tr>
+                            <td>
+                            	<ul class="services-ul">
+                                	<li>Hadoop</li>
+                                    <li>MapReduce</li>
+                                    <li>Hive</li>
+                                    <li>PIG</li>
+                                    <li>HBase</li>
+                                    <li>Flume</li>
+                                    <li>Oozie</li>
+                                    <li>Sqoop</li>
+                                    <li>Zookeeper</li>
+                                </ul>
+                            </td>
+                            <td>
+                            	<ul class="services-ul">
+                                	<li>MicroStrategy</li>
+                                    <li>Business Objects (SAP)</li>
+                                    <li>Tableau</li>
+                                    <li>Cognos</li>
+                                    <li>Hyperion</li>
+                                    <li>Oracle OBIEE</li>
+                                    <li>Pentaho</li>
+                                    <li>Qlikview</li>
+                                    <li>Netezza</li>
+                                    <li>Informatica</li>
+                                    <li>Jasper</li>
+                                    <li>BIRT</li>
+                                </ul>
+                            </td>
+                            <td>
+                            	<ul class="services-ul">
+                                	<li>Oracle Warehouse Builder</li>
+                                    <li>IBM DataSstage</li>
+                                    <li>BO Data Integrator</li>
+                                    <li>KETL</li>
+                                    <li>Microsoft SSIS</li>
+                                    <li>Netezza</li>
+                                    <li>Spark</li>
+                                </ul>
+                            </td>
+                            <td>
+                            	<ul class="services-ul">
+                                	<li>Oracle DRM</li>
+                                    <li>Oracle CDH</li>
+                                    <li>D&B </li>
+                                    <li>Siebel UCM</li>
+                                    <li>DataFlux</li>
+                                    <li>Talend</li>
+                                    <li>Informatica Data Quality</li>
+                                    <li>Informatica MDM (Siperian)</li>
+                                </ul>
+                            </td>
+                            <td>
+                            	<ul class="services-ul">
+                                	<li>Mahout</li>
+                                    <li>Semaphore</li>
+                                    <li>LucidWorks</li>
+                                    <li>Splunk</li>
+                                    <li>Spotfire</li>
+                                    <li>SAS</li>
+                                    <li>Shark</li>
+                                </ul>
+                            </td>
+                          </tr>
+                          </tbody>
+                    </table>
+                    </div>
+                </div>               
+                </div>
+            </div>
+
+  
+		</div>
+	</div> 
+   <!--slider6-->   
+      <!--slider7--> 
+   	<div class="section services" id="section7">
+		<div class="intro">			 
+    	
+    	<div class="container-fluid services-wrapper">
+            	<h2 class="heading">Cloud Enablement</h2>
+                <div class="row">
+                <div class="col-md-3 col-sm-3 img-right">
+                <img src="images/services/cloud-enablement.png" class="img-responsive background-image img-right"></div>
+                <div class="col-md-6 custom col-sm-6">
+                	<p class="services-p">We offer a complete range of testing services that help enterprises to not only provide reliable and accurate data and services, but also to reduce the associated investments. We offer, along with our testing services, accelerators (including our proprietary eTAAP) that enable test automation using a range of open source frameworks such as Jenkins, Selenium, TestNG, and Continuous Integration tools such as Maven. Our testing approach covers all digital platforms, web and mobile transactions, as well as analytics services.</p>
+                    <p class="services-p">Apart from functional testing, system testing, regression testing, and API testing services, we provide specialized services such as performance testing, security testing, and multivariate testing to provide insights that better serve the needs of stakeholders as well as application and service users.</p>
+                    <p class="services-p">We help set up testing Centers of Excellence (CoE) for enterprises, and provide a roadmap for adoption of testing automation.</p>
+                </div>                                
+                </div>
+            </div>
+
+  
+		</div>
+        <footer>
+    <div class="container">
+      <div class="col-lg-4 col-md-4 col-sm-4 footer-links pull-right">
+        <ul class="list-inline pull-right">
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="#nogo">Sitemap</a></li>
+          <li><a href="contact-us.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 social-icons pull-right">
+        <ul class="list-inline text-center">
+          <li><a href="#"><span class="flipper"><i class="fa fa-facebook fa-lg flip-front"></i><i class="fa fa-facebook fa-lg flip-back"></i></span></a></li>
+          <li><a href="#"><span class="flipper"><i class="fa fa-twitter fa-lg flip-front"></i><i class="fa fa-twitter fa-lg flip-back"></i></span></a></li>
+          <li><a href="#"><span class="flipper"><i class="fa fa-linkedin fa-lg flip-front"></i><i class="fa fa-linkedin fa-lg flip-back"></i></span></a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><i class="fa fa-copyright"></i> 2015 eTouch Systems. All rights reserved</div>
+    </div>
+  </footer>
+	</div> 
+   <!--slider7--> 
+    
+</div>  
+  
+ <!--<div id="panelNav"> 
+    	<a class="panelBtn active" data-panel="for_panel-1" data-wa-link="test_homepage_tellthestory_section1_bubble1">
+        <span class="left-nav-text">Leveraging the Legacy</span> <span class="bullet"></span><div class="clear"></div></a> 
+        <a class="panelBtn" data-panel="for_panel-2" data-wa-link="test_homepage_tellthestory_section1_bubble2"><span class="left-nav-text">Stakeholder Collaboration</span><span class="bullet"></span><div class="clear"></div></a> 
+        <a class="panelBtn" data-panel="for_panel-3" data-wa-link="test_homepage_tellthestory_section1_bubble3"><span class="left-nav-text">Demand Data & Services</span><span class="bullet"></span><div class="clear"></div></a> 
+        <a class="panelBtn" data-panel="for_panel-4" data-wa-link="test_homepage_tellthestory_section1_bubble4"><span class="left-nav-text">Digital Enterprise Security</span class="bullet"><span class="bullet"></span><div class="clear"></div></a> 
+        <a class="panelBtn" data-panel="for_panel-5" data-wa-link="test_homepage_tellthestory_section1_bubble5"><span class="left-nav-text">Testing Services</span><span class="bullet"></span><div class="clear"></div></a> 
+        <a class="panelBtn" data-panel="for_panel-6" data-wa-link="test_homepage_tellthestory_section1_bubble6"><span class="left-nav-text">Digital Analytics</span><span class="bullet"></span><div class="clear"></div></a> 
+        <a class="panelBtn" data-panel="for_panel-7" data-wa-link="test_homepage_tellthestory_section1_bubble7"><span class="left-nav-text">Cloud Enablement</span><span class="bullet"></span><div class="clear"></div></a> 
+    </div>
+</div> -->
+  
+  
+
+
+<!--<div id="nextPanel" data-anchor-target="#for_panel-6" data-bottom-top="opacity: 1;" data-top="opacity: 0;"> 
+	<a href="#" data-wa-link="test_homepage_tellthestory_section1_scrollarrow">Next</a>
+</div>-->
+
+
+
+<!--<script type="text/javascript" src="js/melody2.js"></script>-->
+</body>
+</html>
